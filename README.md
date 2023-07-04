@@ -116,7 +116,7 @@ In this project we have two parts:
   
 Python offers huge libraries with multiple predefined functions and methods to facilitate programming. Here are some examples:
 - Len: Returns the length of a list
-- Sum: Returns the total of all elements in a list instead of a hole loop
+- Sum: Returns the total of all elements in a list instead of a whole loop
 - Min, Max: Return the minimum and the maximum values in a list
 - index: Returns the value of an index in a list
 
