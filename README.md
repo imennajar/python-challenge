@@ -9,7 +9,7 @@ In this project we have two parts:
 
     - How to import modules like csv
     - How to use the right instructions and data structures
-    - How to export a text file with the results.
+    - How to export a text file with the results
     
 # Instructions:
 ## PyBank
