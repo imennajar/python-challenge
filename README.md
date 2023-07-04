@@ -40,7 +40,7 @@ In this project we have two parts:
 ![screenshot for resources](/budget_data.png)
 
 ### Analysis: budget_data.txt
-![screenshot for analysis of PyBank](/budget_data.txt.png)
+
 
 ### Python script: main.py
 ```
@@ -77,7 +77,7 @@ In this project we have two parts:
 ![screenshot for resources](/election_data.png)
 
 ### Analysis: budget_data.txt
-![screenshot for analysis of PyPoll](/election_data.txt.png)
+
 
 ### Python script: main.py
 ```
