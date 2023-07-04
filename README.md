@@ -50,11 +50,11 @@ In this project we have two parts:
         # net total amount
         net_amount = net_amount + float(row[1])
         
-        #assign the value of each profit/loss and its date respectively to the lists a and c
+        #assign the value of each profit/losses and its date respectively to the lists a and c
         a.append(float(row[1]))  
         c.append(row[0])
     
-    #assign the changes of each profit/loss and their dates respectively in list b and d
+    #assign the changes of each profit/losses and their dates respectively in list b and d
     for j in range (len(a)-1):
         
         x=((a[j+1]-a[j]))
@@ -89,7 +89,7 @@ In this project we have two parts:
     #sort the list a 
     a.sort()
     
-    #fill the list b with names without redundancy
+    #fill the list b with condidate names without redundancy
     b.append(a[0])
     
     for i in range (len(a)-1):
@@ -97,7 +97,7 @@ In this project we have two parts:
         if a[i]!=a[i+1]:
             b.append(a[i+1])
             
-    #count the number of votes for each condidate and save it in the list c        
+    #count the number of votes for each candidate and save it in the list c        
     for i in range (len(b)):   
         l=0
         for j in range (len(a)): 
@@ -115,9 +115,9 @@ In this project we have two parts:
 # Tip:🪄
   
 Python offers huge libraries with multiple predefined functions and methods to facilitate programming. Here are some examples:
-- Len: Returns the length of a list
-- Sum: Returns the total of all elements in a list instead of a whole loop
-- Min, Max: Return the minimum and the maximum values in a list
+- len: Returns the length of a list
+- sum: Returns the total of all elements in a list instead of a whole loop
+- min and max: Return the minimum and the maximum values in a list
 - index: Returns the value of an index in a list
 
 --> Code to look for the maximum and its index in a list with loops:😒
@@ -143,4 +143,4 @@ Python offers huge libraries with multiple predefined functions and methods to f
      max=max(b)
      pmax=b.index(max)
  ```
-- Sort(): Forget about sorting algorithms and how complicated they are! one simple function to call and your list is sorted! 😍
+- Sort(): Forget about sorting algorithms and how complicated they are! one simple call and your list is sorted! 😍
