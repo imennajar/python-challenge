@@ -1,9 +1,9 @@
 # python-challenge
-# How to use pyhton to read information from a CSV file, manipulate them and return results into a text file: :cd:
+# How to use python to read information from a CSV file, manipulate it, and return results into a text file: :cd:
 
 In this project we have two parts: 
 - Analyze the financial records of a company
-- Modernize vote-counting process of a small, rural town
+- Modernize the vote-counting process of a small, rural town
 
 # What we will learn from this project:
 
@@ -20,7 +20,7 @@ In this project we have two parts:
     - Look for the greatest increase in profits (date and amount) over the entire period
     - Look for the greatest decrease in profits (date and amount) over the entire period
     - Print all the results on the terminal
-    - Write all the outputs in a text file as a result of analysis
+    - Write all the outputs resulting from analysis in a text file
     
 ## PyPoll
     - Open and read an existing dataset about votes from a CSV file
@@ -28,9 +28,9 @@ In this project we have two parts:
     - Create a complete list of candidates who received votes
     - Calculate the percentage of votes each candidate won
     - Calculate the total number of votes each candidate won
-    - look for the winner of the election based on popular vote
-    - Print all the the results on the terminal
-    - Write all the outputs in a text file as a result of analysis
+    - Look for the winner of the election based on popular vote
+    - Print all the results on the terminal
+    - Write all the outputs resulting from analysis in a text file
 
 #  Program:
 
@@ -50,11 +50,11 @@ In this project we have two parts:
         # net total amount
         net_amount = net_amount + float(row[1])
         
-        #assign the value of each profit/lost and their date respectively to the lists a and c
+        #assign the value of each profit/loss and its date respectively to the lists a and c
         a.append(float(row[1]))  
         c.append(row[0])
     
-    #assign the changes of each profit/loses and their dates respectively in list b and d
+    #assign the changes of each profit/loss and their dates respectively in list b and d
     for j in range (len(a)-1):
         
         x=((a[j+1]-a[j]))
@@ -97,7 +97,7 @@ In this project we have two parts:
         if a[i]!=a[i+1]:
             b.append(a[i+1])
             
-    #count the number of vote of each condidate  and save it in the list c        
+    #count the number of votes for each condidate and save it in the list c        
     for i in range (len(b)):   
         l=0
         for j in range (len(a)): 
@@ -105,7 +105,7 @@ In this project we have two parts:
                l=l+1
         c.append(l)
     
-    #print the name of each condidat with the percentage of their votes and the total of their votes 
+    #print the name of each candidate with the percentage of their votes and the total of their votes 
     for i in range (len(c)):
         print(b[i],':', round(c[i]/len(a)*100,3),'% (',c[i],')','\n')
     
@@ -114,7 +114,7 @@ In this project we have two parts:
 ```   
 # Tip:🪄
   
-Python offers a huge libraries with multiple predifined functions and methods to facilitate programming. Here some examples:
+Python offers huge libraries with multiple predefined functions and methods to facilitate programming. Here are some examples:
 - Len: Returns the length of a list
 - Sum: Returns the total of all elements in a list instead of a hole loop
 - Min, Max: Return the minimum and the maximum values in a list
