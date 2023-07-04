@@ -11,8 +11,8 @@ csvpath= os.path.join("PyBank/resources","budget_data.csv")
 output_path=os.path.join("PyBank/analysis","budget_data.txt")
 
 #Print the header on the terminal
-print('Financial Analysis')
-print('--------------------------------------------------','\n')
+print('\n','Financial Analysis','\n','\n')
+print('--------------------------------------------------','\n','\n')
 
 #Initialize the net total amount of "Profit/Losses"
 net_amount= 0
@@ -50,10 +50,10 @@ with open (csvpath) as csvfile:
         c.append(row[0])
     
     #print the total of months    
-    print('Total Months: ',len(a),'\n')
+    print('Total Months: ', len(a),'\n','\n')
     
     #print net amount
-    print ('Total: ', round(net_amount),'\n')
+    print ('Total: ','$',round(net_amount),'\n','\n')
     
     #assign the changes of each profit/loss and their dates respectively in list b and d
     for j in range (len(a)-1):
@@ -67,7 +67,7 @@ with open (csvpath) as csvfile:
     avg= sum(b)/len(b)
     
     #print the average
-    print('Average change ',round(avg,2),'\n')
+    print('Average change: $',round(avg,2),'\n','\n')
     
     max=max(b)
     
@@ -77,26 +77,26 @@ with open (csvpath) as csvfile:
     
     pmin=b.index(min)
     
-    print('Greatest Increase in Profits',d[pmax],'($',round(max),')','\n')
+    print('Greatest Increase in Profits: ',d[pmax],'($',round(max),')','\n','\n')
                 
-    print('Greatest Decrease in Profits',d[pmin],'($',round(min),')','\n')  
+    print('Greatest Decrease in Profits: ',d[pmin],'($',round(min),')','\n','\n')  
     
 #open the file text to write our result    
 with open(output_path,'w') as f:
     
     #put each result in a variable and add it to the file
-    ch='Financial Analysis'+'\n'
+    ch='\n'+'Financial Analysis'+'\n'+'\n'
     f.write(ch)
     ch='-----------------------------------'+'\n'+'\n'
     f.write(ch)
     ch='Total Months: '+str(len(a))+'\n'+'\n'
     f.write(ch)
-    ch= 'Total: '+str (round(net_amount))+'\n'+'\n'
+    ch= 'Total: $'+str (round(net_amount))+'\n'+'\n'
     f.write(ch)
-    ch= 'Average change: '+str(round(avg,2))+'\n'+'\n'
+    ch= 'Average change: $'+str(round(avg,2))+'\n'+'\n'
     f.write(ch)
-    ch= 'Greatest increase: '+str(round(max))+'\n'+'\n'
+    ch= 'Greatest Increase in Profits: '+d[pmax]+' ($'+str(round(max))+')'+'\n'+'\n'
     f.write(ch)
-    ch= 'Greatest decrease: '+str(round(min))+'\n'+'\n'
+    ch= 'Greatest Decrease in Profits: '+d[pmin]+' ($'+str(round(min))+')'+'\n'+'\n'
     f.write(ch)
     

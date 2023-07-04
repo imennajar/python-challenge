@@ -11,8 +11,8 @@ csvpath= os.path.join("PyPoll/resources","election_data.csv")
 output_path=os.path.join("PyPoll/analysis","election_data.txt")
 
 #Print the header on the terminal
-print('Election Results')
-print('---------------------------------------------------------','\n')
+print('\n','Election Results','\n','\n')
+print('---------------------------------------------------------','\n','\n')
 
 #Declare 4 lists: 
 
@@ -43,8 +43,8 @@ with open (csvpath) as csvfile:
         a.append(row[2]) 
         
     #print the total of votes
-    print('Total of votes: ',len(a),'\n')
-    print('---------------------------------------------------------','\n')
+    print('Total of votes: ',len(a),'\n','\n')
+    print('---------------------------------------------------------','\n','\n')
     
     #sort the list a 
     a.sort()
@@ -67,22 +67,22 @@ with open (csvpath) as csvfile:
     
     #print the name of each candidate with the percentage of their votes and the total of their votes 
     for i in range (len(c)):
-        print(b[i],':', round(c[i]/len(a)*100,3),'% (',c[i],')','\n')
+        print(b[i],': ', round(c[i]/len(a)*100,3),'% (',c[i],')','\n','\n')
     
-    print('---------------------------------------------------------','\n')
+    print('---------------------------------------------------------','\n','\n')
     
     x=max(c)
     p=c.index(x)
     #print the result
     
-    print ('Winner:', b[c.index(x)],'\n')
+    print ('Winner: ', b[c.index(x)],'\n','\n')
     
-    print('---------------------------------------------------------','\n')        
+    print('---------------------------------------------------------','\n','\n')        
             
 #open the file text to write our result    
 with open(output_path,'w') as f:
     #put each result in a variable and add it to the file
-    ch='Election Results'+'\n'+'\n'
+    ch='\n'+'Election Results'+'\n'+'\n'
     f.write(ch)
     ch='------------------------------'+'\n'+'\n'
     f.write(ch)
@@ -91,12 +91,12 @@ with open(output_path,'w') as f:
     ch= '---------------------------'+'\n'+'\n'
     f.write(ch)
     for i in range (len(b)):
-        ch= (str(b[i])+':'+ str(round(c[i]/len(a)*100,3))+'% ('+str(c[i])+')'+'\n'+'\n')
+        ch= (str(b[i])+': '+ str(round(c[i]/len(a)*100,3))+'% ('+str(c[i])+')'+'\n'+'\n')
         f.write(ch)
     ch= '---------------------------'+'\n'+'\n'
     f.write(ch)
-   # ch=('Winner:'+ str(b[p]))+'\n'+'\n'
-   # f.write(ch)
+    ch='Winner: '+ b[c.index(x)]+'\n'+'\n'
+    f.write(ch) 
     ch= '---------------------------'+'\n'+'\n'
     f.write(ch)
         
