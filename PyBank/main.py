@@ -8,23 +8,23 @@ import os
 csvpath= os.path.join("PyBank/resources","budget_data.csv")
 
 #Declare the path of the text file where we will write the results
-output_path=os.path.join("PyBank/analysis","result.txt")
+output_path=os.path.join("PyBank/analysis","budget_data.txt")
 
 #Print the header on the terminal
 print('Financial Analysis')
 print('--------------------------------------------------','\n')
 
-#Inisialize the net total amount of "Profit/Losses" before start counting 
+#Initialize the net total amount of "Profit/Losses"
 net_amount= 0
 
 #Declare 4 lists: 
-#a:will contain, in order as the file, each value of profit/losses
+#a:will contain, in the same order as the file, each value of profit/losses
 a=[]
 
 #b:will contain the changes in Profit/Losses
 b=[]
 
-#c: will contain, in order as the file, each date
+#c: will contain, in the same order as the file, each date
 c=[]
 
 #d:will contain the date of changes
@@ -36,7 +36,7 @@ with open (csvpath) as csvfile:
     #assign each element in the list to csvreader
     csvreader= csv.reader(csvfile, delimiter =",")
     
-    #skeep the header 
+    #skip the header 
     csv_header=next(csvreader)
     
     #loop in the file
@@ -45,7 +45,7 @@ with open (csvpath) as csvfile:
         # net total amount
         net_amount = net_amount + float(row[1])
         
-        #assign the value of each profit/lost and their date respectively to the lists a and c
+        #assign the value of each profit/loss and their date respectively to the lists a and c
         a.append(float(row[1]))  
         c.append(row[0])
     
@@ -55,7 +55,7 @@ with open (csvpath) as csvfile:
     #print net amount
     print ('Total: ', round(net_amount),'\n')
     
-    #assign the changes of each profit/loses and their dates respectively in list b and d
+    #assign the changes of each profit/loss and their dates respectively in list b and d
     for j in range (len(a)-1):
         
         x=((a[j+1]-a[j]))
@@ -69,43 +69,17 @@ with open (csvpath) as csvfile:
     #print the average
     print('Average change ',round(avg,2),'\n')
     
-    # look for the greatest change's increase and the greatest chage's decrease and their dates    
-    max=0
-    pmax=0
-    min=0
-    pmin=0
+    max=max(b)
     
-    #loops to look for the max and the min and their positions in the list b
+    min=min(b)
     
-    for i in range (len(b)):
-        if b[i]< min:
-            min=b[i]
-            pmin=i
-            
-    for j in range (len(b)):
-        if b[j]> max:
-            max=b[j]
-            pmax=j  
-   
-   
-    #look for the dates with the min and max position in the list d and print the greatest decrese with its date and the greatest increase with its date
-    h = 0
-    stop= False
-    while(stop==False) or (h>=len(b)):
-        if h == pmax: 
-            stop=True
-        else: h=h+1
+    pmax=b.index(max)
     
-    print('Greatest Increase in Profits',d[h],'($',round(max),')','\n')
-               
-    h = 0
-    stop= False
-    while(stop==False) or (h>=len(b)):
-        if h == pmin: 
-            stop=True
-        else: h=h+1
+    pmin=b.index(min)
     
-    print('Greatest Decrease in Profits',d[h],'($',round(min),')','\n')  
+    print('Greatest Increase in Profits',d[pmax],'($',round(max),')','\n')
+                
+    print('Greatest Decrease in Profits',d[pmin],'($',round(min),')','\n')  
     
 #open the file text to write our result    
 with open(output_path,'w') as f:
