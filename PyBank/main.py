@@ -14,38 +14,33 @@ output_path=os.path.join("PyBank/analysis","result.txt")
 print('Financial Analysis')
 print('--------------------------------------------------','\n')
 
-#Inisialize the number of month at 0 before start counting the number
-nbr_m=0
-
-#Inisialize the net total amount of "Profit/Losses" before start counting the sum
+#Inisialize the net total amount of "Profit/Losses" before start counting 
 net_amount= 0
 
 #Declare 4 lists: 
-#a:will contain, in order as the file, each value of profit/losses with size =n 
+#a:will contain, in order as the file, each value of profit/losses
 a=[]
-n=0
 
-#b:will contain the changes in Profit/Losses with size k
+#b:will contain the changes in Profit/Losses
 b=[]
-k=0
 
-#c: will contain, in order as the file, each date with size =n 
+#c: will contain, in order as the file, each date
 c=[]
-#d:will contain the date of changes with size k
+
+#d:will contain the date of changes
 d=[]
 
 #open the csv file to read
 with open (csvpath) as csvfile:
     
-    #the delimiter of each row is ,
+    #assign each element in the list to csvreader
     csvreader= csv.reader(csvfile, delimiter =",")
     
     #skeep the header 
     csv_header=next(csvreader)
+    
     #loop in the file
     for row in csvreader:
-        #number of months
-        nbr_m = nbr_m + 1
        
         # net total amount
         net_amount = net_amount + float(row[1])
@@ -53,45 +48,41 @@ with open (csvpath) as csvfile:
         #assign the value of each profit/lost and their date respectively to the lists a and c
         a.append(float(row[1]))  
         c.append(row[0])
-       #incremented n to save the size of our lists
-        n=n+1
+    
     #print the total of months    
-    print('Total Months: ',nbr_m,'\n')
+    print('Total Months: ',len(a),'\n')
     
     #print net amount
     print ('Total: ', round(net_amount),'\n')
     
     #assign the changes of each profit/loses and their dates respectively in list b and d
-    for j in range (n-1):
+    for j in range (len(a)-1):
         
         x=((a[j+1]-a[j]))
         y=c[j+1]
         b.append((x))
         d.append(y)
-        #incremented n to save the size of our lists
-        k=k+1
-    
-    #initialise the sum of the list of the changes to 0
-    s=0
-    #loop in all the list b to calculate the sum of the changes
-    for i in range (k):
-      s=s+b[i]  
+        
     #calculate the average of the changes
-    avg= s/(k)
+    avg= sum(b)/len(b)
+    
     #print the average
     print('Average change ',round(avg,2),'\n')
+    
     # look for the greatest change's increase and the greatest chage's decrease and their dates    
     max=0
     pmax=0
     min=0
     pmin=0
+    
     #loops to look for the max and the min and their positions in the list b
     
-    for i in range (k):
+    for i in range (len(b)):
         if b[i]< min:
             min=b[i]
             pmin=i
-    for j in range (k):
+            
+    for j in range (len(b)):
         if b[j]> max:
             max=b[j]
             pmax=j  
@@ -100,7 +91,7 @@ with open (csvpath) as csvfile:
     #look for the dates with the min and max position in the list d and print the greatest decrese with its date and the greatest increase with its date
     h = 0
     stop= False
-    while(stop==False) or (h>=k):
+    while(stop==False) or (h>=len(b)):
         if h == pmax: 
             stop=True
         else: h=h+1
@@ -109,7 +100,7 @@ with open (csvpath) as csvfile:
                
     h = 0
     stop= False
-    while(stop==False) or (h>=k):
+    while(stop==False) or (h>=len(b)):
         if h == pmin: 
             stop=True
         else: h=h+1
@@ -118,12 +109,13 @@ with open (csvpath) as csvfile:
     
 #open the file text to write our result    
 with open(output_path,'w') as f:
+    
     #put each result in a variable and add it to the file
     ch='Financial Analysis'+'\n'
     f.write(ch)
     ch='-----------------------------------'+'\n'+'\n'
     f.write(ch)
-    ch='Total Months: '+str(nbr_m)+'\n'+'\n'
+    ch='Total Months: '+str(len(a))+'\n'+'\n'
     f.write(ch)
     ch= 'Total: '+str (round(net_amount))+'\n'+'\n'
     f.write(ch)
