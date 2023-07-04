@@ -1,5 +1,5 @@
 # python-challenge
-# How to use python to read information from a CSV file, manipulate it, and return results into a text file: :cd:
+# How to use Python to read information from a CSV file, manipulate it, and return results into a text file: :cd:
 
 In this project we have two parts: 
 - Analyze the financial records of a company
@@ -7,9 +7,9 @@ In this project we have two parts:
 
 # What we will learn from this project:
 
-    - How to use CSV files
+    - How to import modules like csv
     - How to use the right instructions and data structures
-    - How to write the final analysis in a text file
+    - How to export a text file with the results.
     
 # Instructions:
 ## PyBank
